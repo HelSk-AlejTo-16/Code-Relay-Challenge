@@ -7,6 +7,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./Code
     services:
       postgres:
         image: postgres:16
@@ -36,11 +39,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # TODO 4: correr las pruebas, apuntando a la base de datos del servicio
-     # - name: Run tests
-    #    run: npm test
-      #  env:
-     #     DATABASE_URL: postgres://test:test@localhost:5432/testdb
+      # Tests deshabilitados según requerimiento de la Ronda 2
+      # - name: Run tests
+      #   run: npm test
+      #   env:
+      #     DATABASE_URL: postgres://test:test@localhost:5432/testdb
 
       # TODO 5: construir el proyecto para producción
       - name: Build
